@@ -15,7 +15,9 @@ public class ConnectionInvocationHandler implements InvocationHandler {
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 
-        System.out.println("Connection trace : " + method.toGenericString());
+        if (method.getName().contains("commit") || method.getName().contains("rollback") || method.getName().contains("close")) {
+            System.out.println("Connection trace : " + method.toGenericString());
+        }
 
         Object returnValue = method.invoke(connection, args);
 

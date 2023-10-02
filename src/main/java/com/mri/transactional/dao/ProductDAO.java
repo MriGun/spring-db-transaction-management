@@ -16,7 +16,7 @@ public class ProductDAO {
         this.productRepo = productRepo;
     }
 
-    //@Transactional(propagation = Propagation.REQUIRES_NEW)
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
     public void saveProduct(Product product) {
         productRepo.save(product);
     }

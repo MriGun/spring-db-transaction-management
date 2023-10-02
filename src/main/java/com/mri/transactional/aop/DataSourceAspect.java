@@ -17,9 +17,7 @@ public class DataSourceAspect {
     public Object logDataSourceConnectionInfo(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
 
         System.out.println("Datasource tracker : " + proceedingJoinPoint.getSignature());
-
         Object proceed = proceedingJoinPoint.proceed();
-
         System.out.println("return value is : " + proceed);
 
         if (proceed instanceof Connection) {
